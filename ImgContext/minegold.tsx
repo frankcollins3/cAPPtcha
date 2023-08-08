@@ -14,10 +14,9 @@ type imgContextType = {
     trophy: string;
     gold: string;
     cart: string;
+    luckypull: string;
 };
 
-// kiss, signupsigns, dynamite, helmet, barrier, cactus,
-//  trophy, gold, cart
 
 // define values which will remain static
 const imgDefaults: imgContextType = {
@@ -32,13 +31,14 @@ const imgDefaults: imgContextType = {
     trophy: 'minegoldimg/trophy.png',
     gold: 'minegoldimg/gold.png',
     cart: 'minegoldimg/cart.png',
+    luckypull: `minegoldimg/luckypull.png`
 
 };
 
 // createContext
 const ImgContext = createContext<imgContextType>(imgDefaults);
 
-export function useImage() {
+export function useGoldMineImage() {
     return useContext(ImgContext);
 }
 
@@ -56,7 +56,8 @@ export function ImgProvider({ children }: Props) {
 
     const [trophy, settrophy] = useState<string>(`minegoldimg/trophy.png`);
     const [gold, setgold] = useState<string>(`minegoldimg/gold.png`);
-    const [cart, setcart] = useState<string>(`minecartimg/cart.png`);
+    const [cart, setcart] = useState<string>(`minegoldimg/cart.png`);
+    const [luckypull, setLuckypull] = useState<string>(`minegoldimg/luckypull.png`);
         
     const value = {
         kiss,
@@ -68,7 +69,9 @@ export function ImgProvider({ children }: Props) {
 
         trophy,
         gold,
-        cart
+        cart,
+
+        luckypull
     };
 
     return (
